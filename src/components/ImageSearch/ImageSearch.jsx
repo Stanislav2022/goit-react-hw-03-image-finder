@@ -1,8 +1,8 @@
-import Searchbar from './Searchbar/Searchbar'
 import React, { Component } from 'react'
-import ImageGallery from './ImageGallery/ImageGallery'
 import api from "../../services/api"
+import Searchbar from './Searchbar/Searchbar'
 import Loader from './Loader/Loader'
+import ImageGallery from './ImageGallery/ImageGallery'
 
 
 export default class ImageSearch extends Component {
