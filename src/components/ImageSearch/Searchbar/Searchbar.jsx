@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-
+import styles from "../../../index.css"
 
 export default class Searchbar extends Component {
   state = {
@@ -9,13 +9,13 @@ export default class Searchbar extends Component {
     const { search } = this.state;
 
     return (
-    <header className="searchbar">
-      <form className="form">
-        <button type="submit" class="button">
-          <span className="button-label">Search</span>
+    <header className={styles.searchbar}>
+      <form className={styles.form}>
+        <button type="submit" className={styles.button}>
+          <span className={styles.button__label}>Search</span>
         </button>
 
-        <input className="input" type="text" autocomplete="off" autofocus placeholder="Search images and photos"/>
+        <input className={styles.input} type="text" autocomplete="off" autofocus placeholder="Search images and photos"/>
       </form>
     </header>
     )
