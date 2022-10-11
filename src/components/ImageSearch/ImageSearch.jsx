@@ -7,7 +7,7 @@ import ImageGallery from './ImageGallery/ImageGallery'
 
 export default class ImageSearch extends Component {
     state = {
-        search: '',
+        search: "",
         page: 1,
         per_page: 12,
         items: [],
@@ -15,9 +15,16 @@ export default class ImageSearch extends Component {
         error: null,
     }
 
+    componentDidUpdate(_, prevState) {
+        const { search, page } = this.state;
+        if ((search && prevState.search) || page > prevState.page) {
+            this.fetchImages(search, page);
+        }
+    }
+
     async fetchImages() {
         const { search, page } = this.state;
-        this.state({ loading: true, });
+        this.setState({ loading: true, });
         try {
             const data = await getImages(search, page);
             this.setState(({ items }) => {
@@ -28,12 +35,12 @@ export default class ImageSearch extends Component {
         } catch (error) {
             this.setState({error})
         } finally {
-            this.state({ loading: false, });
+            this.setState({ loading: false, });
         }
     }
 
     onSearch = ({ search }) => {
-        this.state({ search, });
+        this.setState({ search, });
     }
 
     render() {
