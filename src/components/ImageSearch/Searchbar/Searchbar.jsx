@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import style from "./searchbar.module.scss"
+import style from "./Searchbar.module.css"
 
 export default class Searchbar extends Component {
   state = {
@@ -32,11 +32,23 @@ export default class Searchbar extends Component {
     return (
     <header className={style.searchbar}>
       <form className={style.searchform} onSubmit={handleSubmit}>
-        <button type="submit" className={style.button} onClick={handleSubmit}>
-          <span className={style.button__label}>Search</span>
-        </button>
+          <button
+            type="submit"
+            className={style.button}
+            onClick={handleSubmit}>
+            <span className={style.button__label}>Search</span>
+            </button>
 
-          <input className={style.input} name="search" value={search} type="text" autoComplete="off" autoFocus placeholder="Search images and photos" handleChange={handleChange} />
+          <input
+            className={style.input}
+            name="search"
+            value={search}
+            type="text"
+            autoComplete="off"
+            autoFocus
+            placeholder="Search images and photos"
+            required 
+            onChange={handleChange} />
       </form>
     </header>
     )
