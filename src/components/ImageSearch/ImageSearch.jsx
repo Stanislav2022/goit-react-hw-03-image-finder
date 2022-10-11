@@ -17,7 +17,7 @@ export default class ImageSearch extends Component {
 
     componentDidUpdate(_, prevState) {
         const { search, page } = this.state;
-        if ((search && prevState.search) || page > prevState.page) {
+        if ((search && prevState.search !== search) || page > prevState.page) {
             this.fetchImages(search, page);
         }
     }
@@ -30,6 +30,7 @@ export default class ImageSearch extends Component {
             this.setState(({ items }) => {
                 return {
                     items: [...items, ...data]
+                 
                 }
             })
         } catch (error) {
@@ -46,11 +47,12 @@ export default class ImageSearch extends Component {
     render() {
         const { items, loading, error, search } = this.state; 
         const { onSearch } = this;
-    return (
+            return (
         <div>
-            {loading && <Loader/>}
+            {loading && <Loader />}
+            {error && <p>Будь ласка спробуйте пізніше...</p>}
             <Searchbar onSubmit={onSearch} />
-            <ImageGallery/>
+            <ImageGallery items={items} />
       </div>
     )
   }
