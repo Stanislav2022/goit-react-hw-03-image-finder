@@ -30,13 +30,13 @@ export default class Searchbar extends Component {
     const { handleSubmit, handleChange } = this;
 
     return (
-    <header className={css.searchbar}>
-      <form className={css.searchForm} onSubmit={handleSubmit}>
-        <button type="submit" className={css.searchForm__button} onClick={handleSubmit}>
-          <span className={css.searchForm__buttonLabel}>Search</span>
+    <header className={style.searchbar}>
+      <form className={style.searchform} onSubmit={handleSubmit}>
+        <button type="submit" className={style.button} onClick={handleSubmit}>
+          <span className={style.button__label}>Search</span>
         </button>
 
-          <input className={css.input} name="search" value={search} type="text" autoComplete="off" autoFocus placeholder="Search images and photos" handleChange={handleChange} />
+          <input className={style.input} name="search" value={search} type="text" autoComplete="off" autoFocus placeholder="Search images and photos" handleChange={handleChange} />
       </form>
     </header>
     )
