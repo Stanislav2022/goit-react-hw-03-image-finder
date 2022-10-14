@@ -1,10 +1,10 @@
+import { ImageGalleryItem } from "../ImageGalleryItem/ImageGalleryItem"
 
 const ImageGallery = ({ items }) => {
-  const elements = items.map(({ id, webformatURL, largeImageURL, tags }) => <li key={id}><img src={webformatURL} alt={tags} /></li>
-  )
-
   return (
-    <ul>{elements}</ul>
+    <ul>
+      <ImageGalleryItem items={items} />
+    </ul>
   )
 }
 
