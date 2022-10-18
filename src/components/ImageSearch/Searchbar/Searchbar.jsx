@@ -1,5 +1,8 @@
 import React, { Component } from "react"
 import style from "./Searchbar.module.css"
+import { FaSearch } from 'react-icons/fa';
+import { IconContext } from "react-icons";
+
 
 export default class Searchbar extends Component {
   state = {
@@ -44,7 +47,11 @@ export default class Searchbar extends Component {
             type="submit"
             className={style.button}
             onClick={handleSubmit}>
-              <span className={style.button__label}>Search</span>
+            <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
+                <div>
+                    <FaSearch />
+                </div>
+            </IconContext.Provider>
           </button>
 
           <input
