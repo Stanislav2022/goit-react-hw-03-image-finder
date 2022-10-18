@@ -4,6 +4,7 @@ import Searchbar from './Searchbar/Searchbar'
 import Loader from './Loader/Loader'
 import ImageGallery from './ImageGallery/ImageGallery'
 import Modal from './Modal/Modal'
+import Button from './Button/Button'
 
 
 export default class ImageSearch extends Component {
@@ -86,7 +87,7 @@ export default class ImageSearch extends Component {
                     <Searchbar onSubmit={onSearch} />
                     {isImages && <ImageGallery items={items} onClick={openModal} />}
                     {loading && <Loader />}
-                    {isImages && <button onClick={loadeMore}>Load more</button>}
+                    {isImages && <Button onClick={loadeMore}/>}
                 </div>
     )
   }
