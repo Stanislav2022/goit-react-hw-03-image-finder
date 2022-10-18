@@ -6,7 +6,6 @@ import ImageGallery from './ImageGallery/ImageGallery'
 import Modal from './Modal/Modal'
 import Button from './Button/Button'
 
-
 export default class ImageSearch extends Component {
     state = {
         search: "",
