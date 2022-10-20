@@ -1,5 +1,6 @@
 import { ImageGalleryItem } from "../ImageGalleryItem/ImageGalleryItem"
 import css from "./ImageGallery.module.css"
+import PropTypes from 'prop-types';
 
 const ImageGallery = ({ items, onClick }) => {
   return (
@@ -15,3 +16,8 @@ export default ImageGallery
 ImageGallery.defaultProps = {
   items: []
 }
+
+ImageGallery.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  items: PropTypes.array.isRequired,
+};
