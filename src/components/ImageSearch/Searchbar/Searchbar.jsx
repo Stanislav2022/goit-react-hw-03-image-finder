@@ -7,7 +7,6 @@ import { IconContext } from "react-icons";
 export default class Searchbar extends Component {
   state = {
     search: "",
-
   }
 
   handleChange = (e) => {
@@ -17,12 +16,13 @@ export default class Searchbar extends Component {
     });
   }
 
-    handleSubmit = (e) => {
-      e.preventDefault();
-      const { onSubmit } = this.props;
-      onSubmit({ ...this.state });
-      this.reset();
-    }
+  handleSubmit = (e) => {
+    e.preventDefault();
+    const { onSubmit } = this.props;
+    onSubmit({ ...this.state });
+    this.reset();
+    
+  }
 
   reset() {
       this.setState({ search: "" });

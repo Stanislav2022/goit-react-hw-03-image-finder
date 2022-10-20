@@ -46,8 +46,8 @@ export default class ImageSearch extends Component {
         }
     }
 
-    onSearch = ({ search }) => {
-        this.setState({ search, });
+    onSearch = ({search}) => {
+        this.setState({ search })
     }
     openModal = (modalContent) => {
             this.setState({
