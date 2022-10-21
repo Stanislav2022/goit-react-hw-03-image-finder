@@ -23,8 +23,11 @@ export default class ImageSearch extends Component {
 
     componentDidUpdate(_, prevState) {
         const { search, page } = this.state;
-        if ((search && prevState.search !== search) || page > prevState.page) {
+        if (search && page !== prevState.page) {
             this.fetchImages(search, page);
+        } else if (prevState.search !== search) {
+            this.setState({ items: [] });
+            this.fetchImages(search, page); 
         }
     }
 
