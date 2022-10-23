@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import style from "./Searchbar.module.css"
 import { FaSearch } from 'react-icons/fa';
 import { IconContext } from "react-icons";
+import PropTypes from 'prop-types';
 
 
 export default class Searchbar extends Component {
@@ -20,13 +21,8 @@ export default class Searchbar extends Component {
     e.preventDefault();
     const { onSubmit } = this.props;
     onSubmit({ ...this.state });
-    this.reset();
-    
-  }
+   }
 
-  reset() {
-      this.setState({ search: "" });
-  }
   
   searchField = {
     type: "text",
@@ -66,3 +62,6 @@ export default class Searchbar extends Component {
   }
 }
 
+Searchbar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+   };

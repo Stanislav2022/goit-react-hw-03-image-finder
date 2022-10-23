@@ -12,6 +12,7 @@ export default class ImageSearch extends Component {
         page: 1,
         per_page: 12,
         items: [],
+        totalHits: 0,
         loading: false,
         error: null,
         modalOpen: false,
@@ -32,14 +33,14 @@ export default class ImageSearch extends Component {
     }
 
     async fetchImages() {
-        const { search, page } = this.state;
+        const { search, page,} = this.state;
         this.setState({ loading: true, });
         try {
             const data = await getImages(search, page);
+            this.setState({ totalHits: data.totalHits });
             this.setState(({ items }) => {
                 return {
-                    items: [...items, ...data]
-                 
+                    items: [...items, ...data.hits]
                 }
             })
         } catch (error) {
@@ -77,7 +78,7 @@ export default class ImageSearch extends Component {
     )}
 
     render() {
-        const { items, loading, error, modalOpen, modalContent } = this.state; 
+        const { items, loading, error, modalOpen, modalContent, page, per_page, totalHits } = this.state; 
         const { loadeMore, onSearch, openModal, closeModal } = this;
         const isImages = Boolean(items.length);
             return (
@@ -89,7 +90,12 @@ export default class ImageSearch extends Component {
                     <Searchbar onSubmit={onSearch} />
                     {isImages && <ImageGallery items={items} onClick={openModal} />}
                     {loading && <Loader />}
-                    {isImages && <Button onClick={loadeMore}/>}
+                    {isImages && page * per_page < totalHits ? (
+                        <Button onClick={loadeMore} />
+                        ) : (
+                        ''
+                    )}
+                    
                 </div>
     )
   }

@@ -1,4 +1,3 @@
-import { ImageGalleryItem } from "../ImageGalleryItem/ImageGalleryItem"
 import css from "./ImageGallery.module.css"
 import PropTypes from 'prop-types';
 
@@ -18,7 +17,7 @@ ImageGallery.defaultProps = {
   items: []
 }
 
-ImageGalleryItem.propTypes = {
+ImageGallery.propTypes = {
   onClick: PropTypes.func.isRequired,
   items: PropTypes.arrayOf(
       PropTypes.shape({
